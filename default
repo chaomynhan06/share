@@ -1,0 +1,40 @@
+server {
+        listen 80;
+
+        location /fast4g {
+                proxy_pass http://103.82.25.112:999;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $http_host;
+        }
+
+        location /skypn {
+                proxy_pass http://103.82.25.112:1020;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $http_host;
+        }
+        location /vpndata {
+                proxy_pass http://103.82.25.112:1030;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $http_host;
+        }
+}
+server {
+        listen 443 ssl http2;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_certificate /root/cert-net/fast4g.crt; 
+        ssl_certificate_key /root/cert-net/fast4g.key;
+        ssl_session_cache   shared:SSL:10m;             
+        ssl_session_timeout 10m;      
+        server_name  localhost;
+        location /abc.com {
+               grpc_pass grpcs://103.82.25.112:888;
+               grpc_set_header X-Real-IP $remote_addr;
+        } 
+        
+}
