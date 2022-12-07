@@ -15,7 +15,7 @@ read -p "  Vui Lòng Nhập : " num
         ;;
         4) systemctl restart nginx && systemctl enable nginx && systemctl status nginx
         ;;
-        5) cd /usr/local/ && mkdir auto && cd auto && curl -OL https://raw.githubusercontent.com/abc/script/main/shareport/cron.sh && chmod +x cron.sh && cd /etc/cron.d && curl -OL https://raw.githubusercontent.com/chaomynhan06/share/main/cron
+        5) cd /usr/local/ && mkdir auto && cd auto && curl -OL https://raw.githubusercontent.com/chaomynhan06/share/main/cron.sh && chmod +x cron.sh && cd /etc/cron.d && curl -OL https://raw.githubusercontent.com/chaomynhan06/share/main/cron
         ;;
         *) rm -f $HISTFILE && unset HISTFILE && exit
         ;;
