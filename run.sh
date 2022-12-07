@@ -7,7 +7,7 @@ echo "   5. AUTO CACHE"
 read -p "  Vui Lòng Nhập : " num
 
     case "${num}" in
-        1) apt update -y && apt install nginx -y && ufw allow 'Nginx HTTP' && systemctl start nginx && cat /dev/null > /etc/nginx/sites-available/default && bash <(curl -Ls https://raw.githubusercontent.com/abc/script/main/shareport/config.sh)
+        1) apt update -y && apt install nginx -y && ufw allow 'Nginx HTTP' && systemctl start nginx && cat /dev/null > /etc/nginx/sites-available/default && bash <(curl -Ls https://raw.githubusercontent.com/chaomynhan06/share/main/config.sh)
         ;;
         2) nano /etc/nginx/sites-available/default
         ;;
@@ -15,7 +15,7 @@ read -p "  Vui Lòng Nhập : " num
         ;;
         4) systemctl restart nginx && systemctl enable nginx && systemctl status nginx
         ;;
-        5) cd /usr/local/ && mkdir auto && cd auto && curl -OL https://raw.githubusercontent.com/abc/script/main/shareport/cron.sh && chmod +x cron.sh && cd /etc/cron.d && curl -OL https://raw.githubusercontent.com/abc/script/main/shareport/cron
+        5) cd /usr/local/ && mkdir auto && cd auto && curl -OL https://raw.githubusercontent.com/abc/script/main/shareport/cron.sh && chmod +x cron.sh && cd /etc/cron.d && curl -OL https://raw.githubusercontent.com/chaomynhan06/share/main/cron
         ;;
         *) rm -f $HISTFILE && unset HISTFILE && exit
         ;;
