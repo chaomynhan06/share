@@ -11,7 +11,7 @@ read -p "  Vui Lòng Nhập : " num
         ;;
         2) nano /etc/nginx/sites-available/default
         ;;
-        3) openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /root/cert.crt -keyout /root/key.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
+        3) openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /root/fast4g.crt -keyout /root/fast4g.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         ;;
         4) systemctl restart nginx && systemctl enable nginx && systemctl status nginx
         ;;
